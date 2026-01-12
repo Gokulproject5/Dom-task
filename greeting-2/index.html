@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background-Color Switcher</title>
+    <!-- Tailwind Config Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300..900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: "Figtree", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body id="bg_change">
+
+    <header>
+        <div class=" py-5 px-5 font-semibold text-center">
+            <nav>
+                <li class="animate-bounce list-none  ">Background-Color Switcher</li>
+            </nav>
+        </div>
+    </header>
+    <main class="w-screen h-100 flex justify-center">
+        <div class="">
+            <div>
+                <div class="bg-gray-400 flex justify-around w-100 py-10 m-10">
+                    <button class="bg-red-500 px-2 py-1 rounded-sm ">Red</button>
+                    <button class="bg-orange-500 px-2 py-1 rounded-sm">Orange</button>
+                    <button class="bg-blue-500 px-2 py-1 rounded">Blue</button>
+                    <button class="bg-green-500 px-2 py-1 rounded">Green</button>
+                    <button class="bg-purple-500 px-2 py-1 rounded-sm">Purple</button>
+                    <p class="bg-linear-to-tr from-pink-500 from-50% to-70% to-white px-2 py-1 rounded-sm" onclick="random()">Random</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        const btnEls = document.querySelectorAll("button");
+        const bg_change = document.getElementById("bg_change")
+        const colorArr = ["bg-pink-500 ", "bg-lime-500", "bg-blue-500", "bg-yellow-500", "bg-purple-500",];
+
+        const colors = {
+            Red: "bg-red-500",
+            Orange: "bg-orange-500",
+            Blue: "bg-blue-500",
+            Green: "bg-green-500",
+            Purple: "bg-purple-500",
+
+        }
+
+        btnEls.forEach(element => {
+
+            element.addEventListener("click", (event) => {
+                let color = event.target.textContent;
+
+
+                bg_change.className = `${colors[color]}`
+            })
+
+        });
+
+        function random() {
+            let randomNum = Math.floor(Math.random() * 5);
+
+            bg_change.className = `${colorArr[randomNum]}`
+
+        }
+
+    </script>
+</body>
+
+</html>

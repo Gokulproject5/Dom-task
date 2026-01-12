@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Greeting</title>
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300..900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: "Figtree", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+        }
+    </style>
+</head> 
+<body>
+    <header>
+        <div class="bg-blue-500 py-3 px-2 text-center">
+            <nav>
+                <li>🤖 Greeting BOT</li>
+            </nav>
+        </div>
+    </header>
+   <main class="flex flex-col justify-center   w-100 py-10  space-y-10 mx-auto">
+        <div  class=" flex gap-5 bg-gray-200 justify-center  py-10 px-5 border rounded-md">
+            <input type="text" placeholder="Enter Your Name" class="border border-gray-800 bg-white rounded">
+            <button class="bg-blue-600 text-white font-medium px-2 py-1 rounded">Save</button>
+        </div>
+        <div id="mainDiv">
+
+        </div>
+   </main> 
+    <script>
+        const inpEl = document.querySelector("input");
+        const btnEl = document.querySelector("button");
+        const mainDiv = document.getElementById("mainDiv")
+ 
+        //  Adding Function
+        btnEl.addEventListener("click",()=>{
+            mainDiv.innerHTML="";
+            const greetDiv = document.createElement("div");
+            const textTag = document.createElement("h2");
+            
+            // greeting style 
+
+            greetDiv.className = "bg-blue-500 text-white py-10 px-5" 
+               
+            // textTag  
+            textTag.className = "text-medium"
+
+            textTag.innerText = `Hi ${inpEl.value},Welcome My webpage`
+
+            greetDiv.append(textTag);
+            mainDiv.append(greetDiv)
+            
+        })
+         
+    </script>
+</body>
+</html>

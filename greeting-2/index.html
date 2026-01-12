@@ -23,41 +23,48 @@
     </style>
 </head>
 
-<body id="bg_change">
+<body id="bg_change" class="bg-black">
 
     <header>
         <div class=" py-5 px-5 font-semibold text-center">
-            <nav>
-                <li class="animate-bounce list-none  ">Background-Color Switcher</li>
+            <nav class="flex justify-center mx-auto">
+                <li class="animate-bounce list-none py-2 px-5 rounded border bg-lime-400">Background-Color Switcher</li>
+                
             </nav>
         </div>
     </header>
     <main class="w-screen h-100 flex justify-center">
         <div class="">
             <div>
-                <div class="bg-gray-400 flex justify-around w-100 py-10 m-10">
-                    <button class="bg-red-500 px-2 py-1 rounded-sm ">Red</button>
-                    <button class="bg-orange-500 px-2 py-1 rounded-sm">Orange</button>
-                    <button class="bg-blue-500 px-2 py-1 rounded">Blue</button>
-                    <button class="bg-green-500 px-2 py-1 rounded">Green</button>
-                    <button class="bg-purple-500 px-2 py-1 rounded-sm">Purple</button>
-                    <p class="bg-linear-to-tr from-pink-500 from-50% to-70% to-white px-2 py-1 rounded-sm" onclick="random()">Random</p>
+                <div class="bg-slate-400 hover:bg-slate-300 border-collapse border-6 border-white/30 hover:transition-all duration-700 rounded-full flex justify-around w-fit py-5 m-10 px-5 space-x-1">
+                    <button class="bg-red-300 px-2 py-1 rounded-sm  hover:scale-150 hover:transition-all duration-300 hover:px-5 hover:mx-5 hover:rounded-full cursor-pointer active:scale-150 active:transition-all  active:px-5 active:mx-5 active:rounded-ful ">Red</button>
+                    <button
+                        class="bg-orange-300 px-2 py-1 rounded-sm   hover:scale-150 hover:transition-all duration-300 hover:px-5 hover:mx-5 hover:rounded-full cursor-pointer active:scale-150 active:transition-all  active:px-5 active:mx-5 active:rounded-ful ">Orange</button>
+                    <button class="bg-blue-300 px-2 py-1 rounded  hover:scale-150 hover:transition-all duration-300 hover:px-5 hover:mx-5 hover:rounded-full cursor-pointer active:scale-150 active:transition-all  active:px-5 active:mx-5 active:rounded-ful ">Blue</button>
+                    <button class="bg-green-300 px-2 py-1 rounded  hover:scale-150 hover:transition-all duration-300 hover:px-5 hover:mx-5 hover:shadow-2xl hover:shadow-green-500-400 hover:rounded-full cursor-pointer active:scale-150 active:transition-all  active:px-5 active:mx-5 active:rounded-ful ">Green</button>
+                    <button class="bg-purple-300 px-2 py-1 rounded-sm  hover:scale-150 hover:transition-all duration-300 hover:px-5 hover:mx-5 hover:rounded-full cursor-pointer active:scale-150 active:transition-all  active:px-5 active:mx-5 active:rounded-ful ">Purple</button>
+                    <p class="bg-linear-to-tr from-pink-500 from-40% to-70% bg-blend-normal 
+                     to-white px-2 py-1 rounded-sm  cursor-pointer hover:scale-150 hover:transition-all hover:px-5 hover:mx-5 hover:rounded-full duration-300 active:scale-150 active:transition-all  active:px-5 active:mx-5 active:rounded-ful "
+                        onclick="random()">Random</p>
                 </div>
             </div>
         </div>
     </main>
     <script>
         const btnEls = document.querySelectorAll("button");
-        const bg_change = document.getElementById("bg_change")
-        const colorArr = ["bg-pink-500 ", "bg-lime-500", "bg-blue-500", "bg-yellow-500", "bg-purple-500",];
+        const bg_change = document.getElementById("bg_change");
+      
+        const colorArr = ["bg-pink-200 ", "bg-lime-200", "bg-blue-200", "bg-yellow-200", "bg-purple-200"];
+
+  
+  
 
         const colors = {
-            Red: "bg-red-500",
-            Orange: "bg-orange-500",
-            Blue: "bg-blue-500",
-            Green: "bg-green-500",
-            Purple: "bg-purple-500",
-
+            Red: "bg-red-200 transition-all duration-200 ",
+            Orange: "bg-orange-200 transition-all duration-200",
+            Blue: "bg-blue-200 transition-all duration-200 ",
+            Green: "bg-green-200 transition-all duration-200 ",
+            Purple: "bg-purple-200 transition-all  duration-200",
         }
 
         btnEls.forEach(element => {
@@ -66,7 +73,8 @@
                 let color = event.target.textContent;
 
 
-                bg_change.className = `${colors[color]}`
+                bg_change.className = `${colors[color]}`;
+
             })
 
         });

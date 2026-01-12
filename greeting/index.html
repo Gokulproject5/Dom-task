@@ -28,12 +28,12 @@
             </nav>
         </div>
     </header>
-   <main class="flex flex-col justify-center   w-100 py-10  space-y-10 mx-auto">
-        <div  class=" flex gap-5 bg-gray-200 justify-center  py-10 px-5 border rounded-md">
-            <input type="text" placeholder="Enter Your Name" class="border border-gray-800 bg-white rounded">
-            <button class="bg-blue-600 text-white font-medium px-2 py-1 rounded">Save</button>
+   <main class="flex flex-col justify-center bg-gray-500 h-screen py-10  space-y-10 mx-auto">
+        <div  class=" flex gap-5 bg-black justify-center mx-auto py-10 px-5  rounded-md">
+            <input type="text" placeholder="Enter Your Name" class="border bg-slate-200 border-gray-800 rounded px-1" required>
+            <button class="bg-blue-600 text-white font-medium px-2 py-1 rounded ">Save</button>
         </div>
-        <div id="mainDiv">
+        <div id="mainDiv" class="mx-auto  mb-70">
 
         </div>
    </main> 
@@ -44,18 +44,21 @@
  
         //  Adding Function
         btnEl.addEventListener("click",()=>{
+            if(inpEl.value ===""){
+                return alert(`Enter Input Field`)
+            }
             mainDiv.innerHTML="";
             const greetDiv = document.createElement("div");
             const textTag = document.createElement("h2");
             
             // greeting style 
 
-            greetDiv.className = "bg-blue-500 text-white py-10 px-5" 
+            greetDiv.className = "bg-blue-500 text-white py-10 px-5 rounded-lg " 
                
             // textTag  
-            textTag.className = "text-medium"
+            textTag.className = "text-medium capitalize animate-pulse"
 
-            textTag.innerText = `Hi ${inpEl.value},Welcome My webpage`
+            textTag.innerText = `Hi ${inpEl.value},Welcome to  My webpage`
 
             greetDiv.append(textTag);
             mainDiv.append(greetDiv)

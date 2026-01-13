@@ -22,25 +22,31 @@
 </head> 
 <body>
     <header>
-        <div class="bg-blue-500 py-3 px-2 text-center">
+        <div class="bg-blue-400 py-3 px-2 text-center">
             <nav>
                 <li>🤖 Greeting BOT</li>
             </nav>
         </div>
     </header>
-   <main class="flex flex-col justify-center bg-gray-500 h-screen py-10  space-y-10 mx-auto">
-        <div  class=" flex gap-5 bg-black justify-center mx-auto py-10 px-5  rounded-md">
+   <main class="flex flex-col justify-start bg-gray-500  h-[600px] py-20  space-y-10 mx-auto">
+         <div class="flex justify-center">
+            <h1 id="textId" class="text-blue-400 ">Give Your Name In Input Box and See MAgic</h1>
+         </div>
+        <div id="inpDiv"  class=" flex gap-5 bg-black justify-center mx-auto py-10 px-5  rounded-md ">
             <input type="text" placeholder="Enter Your Name" class="border bg-slate-200 border-gray-800 rounded px-1" required>
-            <button class="bg-blue-600 text-white font-medium px-2 py-1 rounded ">Save</button>
+            <button class="bg-blue-600 text-white font-medium px-2 py-1 rounded ">Click Me</button>
+            
         </div>
-        <div id="mainDiv" class="mx-auto  mb-70">
+        <div id="mainDiv" class="mx-auto  animate-[pulse_3s_ease-in-out_infinite]">
 
         </div>
    </main> 
     <script>
         const inpEl = document.querySelector("input");
         const btnEl = document.querySelector("button");
-        const mainDiv = document.getElementById("mainDiv")
+        const mainDiv = document.getElementById("mainDiv");
+        const inpDiv = document.getElementById("inpDiv");
+        const textId = document.getElementById("textId");
  
         //  Adding Function
         btnEl.addEventListener("click",()=>{
@@ -60,9 +66,21 @@
 
             textTag.innerText = `Hi ${inpEl.value},Welcome to  My webpage`
 
-            greetDiv.append(textTag);
-            mainDiv.append(greetDiv)
+            textId.textContent = `Thank You For Visit My Web Page`;
+            textId.classList.toggle(`animate-[ping_3s_ease-in-out_infinite]`);
+
+             inpDiv.classList.toggle("hidden")
             
+            greetDiv.append(textTag);
+            mainDiv.append(greetDiv);
+            
+           setTimeout(() => {
+            textId.classList.toggle(`animate-[ping_3s_ease-in-out_infinite]`);
+            textId.textContent = "Give Your Name In Input Box and See MAgic";
+            inpDiv.classList.toggle("hidden");
+            greetDiv.remove();
+           }, 4000);
+              inpEl.value="";
         })
          
     </script>
